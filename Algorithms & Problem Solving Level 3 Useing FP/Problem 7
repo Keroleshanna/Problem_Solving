@@ -1,1 +1,40 @@
+// Transpos Matrix
+namespace problem7 {
+	short readOrderNumber(short& number) {
+		return number + 1;
+	}
+	void FillMatrixWithOrderNumber(int arr[3][3], short row, short column) {
+		short orderNumber = 0;
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < column; j++) {
+				orderNumber = readOrderNumber(orderNumber);
+				arr[i][j] = orderNumber;
+			}
+		}
+	}
+	void PrintMatrix(int arr[3][3], short row, short column) {
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < column; j++) {
+				cout << arr[i][j] << "     ";
+			}
+			cout << endl;
+		}
+	}
+	void fillOneDimantionArray(int arr[3][3],int arr2[3][3], short row, short column) {
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < column; j++) {
+				arr2[i][j] = arr[j][i];
+			}
+		}
+		PrintMatrix(arr2, row, column);
+	}
+}
+//__________________________________________________________________________________________________________
 
+int main(){
+  int arr[3][3], arr2[3][3];
+	problem7::FillMatrixWithOrderNumber(arr, 3, 3);
+	problem7::PrintMatrix(arr, 3, 3);
+	cout << "\nTranspose : " << endl;
+	problem7::fillOneDimantionArray(arr, arr2, 3, 3);
+}
