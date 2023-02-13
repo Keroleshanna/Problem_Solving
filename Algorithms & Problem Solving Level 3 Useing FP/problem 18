@@ -1,0 +1,59 @@
+// Intersected	Numbers in Matrix
+namespace problem18 {
+	int ReadRandomNumber(short From, short To) {
+		return rand() % (To - From + 1) + From;
+	}
+	void FillMatrixNumber(int arr[][3], short row, short column) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				arr[i][x] = ReadRandomNumber(1, 99);
+			}
+		}
+	}
+	void printMatrix(int arr[3][3], short row, short column) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				cout << setw(2) << arr[i][x] << "     ";
+			}
+			cout << endl;
+		}
+	}
+	bool searchInMatrix(int arr2[3][3], short row, short column, int ShearcherNumber) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				if (ShearcherNumber == arr2[i][x])
+					return true;
+			}
+		}
+		return false;
+	}
+	void printAllSharingNumbers(int arr1[3][3], int arr2[3][3], short row, short column) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				int numberInArray = arr1[i][x];
+				if (searchInMatrix(arr2, row, column, numberInArray)) {
+					cout << arr1[i][x] << "     ";
+				}
+			}
+		}
+		cout << endl;
+	
+	}
+
+}
+//_______________________________________________________________________________________________________
+
+int main(){
+  int arr1[3][3] , arr2[3][3] ;
+
+  cout << "Matrix 1 : " << endl;
+  problem18::FillMatrixNumber(arr1, 3, 3);
+  problem18::printMatrix(arr1, 3, 3);
+
+  cout << "\nMatrix 2 : " << endl;
+  problem18::FillMatrixNumber(arr2, 3, 3);
+  problem18::printMatrix(arr2, 3, 3);
+
+  cout << "\nInstracted Numbers are : " << endl;
+  problem18::printAllSharingNumbers(arr1, arr2, 3, 3);
+}
