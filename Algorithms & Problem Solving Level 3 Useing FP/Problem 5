@@ -1,1 +1,51 @@
+// Sum each column in Matrix in another array
+namespace problem5 {
+	int RandomNumber(int From, int To) {
+		int randNum = rand() % (To - From + 1) + From;
+		return randNum;
+	}
+	void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols) {
+		for (short i = 0; i < Rows; i++) {
+			for (short j = 0; j < Cols; j++) {
+				arr[i][j] = RandomNumber(1, 100);
+			}
+		}
+	}
+	void PrintMatrix(int arr[3][3], short Rows, short Cols) {
+		for (short i = 0; i < Rows; i++) {
+			for (short j = 0; j < Cols; j++) {
+				cout << setw(3) << arr[i][j] << "     ";
+			}
+			cout << "\n";
+		}
+	}
+	void PrintColumnSumArray(int arr[], int size) {
+		for (short j = 0; j < size; j++) {
+			cout << " Cols " << j + 1 << " Sum = " << arr[j] << endl;
+		}
 
+	}
+	int fillAnotherArray(int arr[3][3], short row, short column) {
+		int sumOfColumn = 0;
+		for (int i = 0; i < column; i++) {
+			sumOfColumn += arr[i][row];
+		}
+		return sumOfColumn;
+	}
+	void SumMatixRowsInArry(int arr[3][3], int arr2[3], short row, short column) {
+		for (short j = 0; j < row; j++) {
+			arr2[j] = fillAnotherArray(arr, j, column);
+		}
+		PrintColumnSumArray(arr2 , row);
+
+	}
+}
+//______________________________________________________________________________________________
+
+int main(){
+  int arr1[3][3], arr2[3];
+	problem5::FillMatrixWithRandomNumbers(arr1, 3, 3);
+	problem5::PrintMatrix(arr1, 3, 3);
+	problem5::fillAnotherArray(arr1, 3, 3);
+	problem5::SumMatixRowsInArry(arr1, arr2, 3, 3);
+}
