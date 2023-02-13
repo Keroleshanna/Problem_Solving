@@ -42,3 +42,4 @@ int main(){
 	problem4::PrintMatrix(arr1, 3, 3);
 	problem4::SumColumnMatrixInArry(arr1, 3, 3);
 }
+ 
