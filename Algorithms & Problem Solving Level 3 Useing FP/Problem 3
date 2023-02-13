@@ -1,1 +1,84 @@
+namespace problem3 {
+	// My solution
+	int randomNumber(int from, int to) {
+		return rand() % (to - from + 1) + from;
+	}
+	void fillMatrixwithRandomNumbers(int arr[3][3], short row, short column) {
+		for (int readrow = 0; readrow < row; readrow++) {
+			for (int readcolemn = 0; readcolemn < column; readcolemn++) {
+				arr[readrow][readcolemn] = randomNumber(1, 99);
+			}
+		}
+	}
+	void printMatrix(int arr[3][3], int row, int column) {
+		for (int readrow = 0; readrow < row; readrow++) {
+			for (int readcolemn = 0; readcolemn < column; readcolemn++) {
+				cout << setw(2) << arr[readrow][readcolemn] << "  ";
+			}
+			cout << endl;
+		}
+	}
+	void SumRowsInMatrix(int arr[3][3], int arr2[], int row, int column) {
+		for (int readrow = 0; readrow < row; readrow++) {
+			int sumRows= 0;
+			for (int readcolemn = 0; readcolemn < column; readcolemn++) {
+				sumRows += arr[readrow][readcolemn];
+			}
+			arr2[readrow] = sumRows;
+		}
+	}
+	void printFromOneDimantional(int arr[], int row) {
+		for (int i = 0; i < row; i++) {
+			cout << "The sum of row " << i + 1 << "is : " << arr[i] << endl;
+		}
+	}
+	//--------- other Solution
+	int RandomNumber(int From, int To) {
+		//Function to generate a random number
+		int randNum = rand() % (To - From + 1) + From;
+		return randNum;
+	}
+	void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols) {
+		for (short i = 0; i < Rows; i++)      {
+			for (short j = 0; j < Cols; j++)   {
+				arr[i][j] = RandomNumber(1, 100); 
+			}
+		}
+	}
+	void PrintMatrix(int arr[3][3], short Rows, short Cols) {
+		for (short i = 0; i < Rows; i++)      { 
+			for (short j = 0; j < Cols; j++)   {   
+				cout << setw(3) << arr[i][j] << "     "; 
+			}
+			cout <<  "\n"; 
+		}
+	} 
+	int RowSum(int arr[3][3], short RowNumber, short Cols) {
+		int Sum = 0; 
+		for (short j = 0; j <= Cols - 1; j++) {
+			Sum += arr[RowNumber][j];
+		}
+		return Sum;
+	}
+	void SumMatixRowsInArry(int arr[3][3], int arrSum[3], short Rows, short Cols) {
+		for (short i = 0; i < Rows; i++) {
+			arrSum[i] = RowSum(arr, i, Cols); 
+		}
+	}
+	void PrintRowsSumArray(int arr[3], short Rows) {
+		cout << "\nThe the following are the sum of each row in the matrix:\n";
+		for (short i = 0; i < Rows; i++) {
+			cout << " Row " << i + 1 << " Sum = " << arr[i] << endl;
+		}
+	}
+}
 
+// _______________________________________________________________________________________________________________
+
+int main(){
+int arr[3][3], arr2[3];
+	problem3::FillMatrixWithRandomNumbers(arr, 3, 3);
+	problem3::PrintMatrix(arr, 3, 3);
+	problem3::SumMatixRowsInArry(arr, arr2, 3, 3);
+	problem3::PrintRowsSumArray(arr2, 3);
+  }
