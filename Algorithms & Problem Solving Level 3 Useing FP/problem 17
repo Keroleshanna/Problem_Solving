@@ -1,0 +1,49 @@
+// Number Exists in Matrix
+namespace problem17 {
+	int ReadRandomNumber(short From, short To) {
+		return rand() % (To - From + 1) + From;
+	}
+	void FillMatrixNumber(int arr[][3], short row, short column) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				arr[i][x] = ReadRandomNumber(1, 99);
+			}
+		}
+	}
+	void printMatrix(int arr[3][3], short row, short column) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				cout << setw(2) << arr[i][x] << "     ";
+			}
+			cout << endl;
+		}
+	}
+	bool IsNumberInMatrix(int arr[3][3], short row, short column, short searchINMatrix) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				if (arr[i][x] == searchINMatrix) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+}
+//______________________________________________________________________________________________________
+
+int main(){
+  int arr[3][3];
+	short SearchInMatrix;
+	
+	cout << "Matrix is :" << endl;
+	problem17::FillMatrixNumber(arr, 3, 3);
+	problem17::printMatrix(arr, 3, 3);
+
+	cout << "\nPlease enter the number to look for in Matrix : ";
+	cin >> SearchInMatrix;
+
+	if (problem17::IsNumberInMatrix(arr, 3, 3, SearchInMatrix))
+		cout << "\nYes it's there" << endl;
+	else
+		cout << "\nNo it's Not there" << endl;
+ }
