@@ -34,12 +34,23 @@ namespace problem11 {
 //_________________________________________________________________________________________
 
 int main(){
-  int arr[3][3];
+  int arr1[3][3], arr2[3][3];
 
-	cout << "The Matrix is : " << endl;
-	problem10::FillRandomMatrix(arr, 3, 3);
-	problem10::PrintMatrix(arr, 3, 3);
+	problem11::FillRandomMatrix(arr1, 3, 3);
+	problem11::FillRandomMatrix(arr2, 3, 3);
 
-	
-	problem10::sumMatrix(arr, 3, 3);
+	cout << "Matrix 1:" << endl;
+	problem11::PrintMatrix(arr1, 3, 3);
+	int sumMatrix1 = problem11::sumMatrix(arr1, 3, 3);
+	cout << "sum of matrix 1 equal = " << sumMatrix1 << endl;
+
+	cout << "\n\n Matrix 2" << endl;
+	problem11::PrintMatrix(arr2, 3, 3);
+	int sumMatrix2 = problem11::sumMatrix(arr2, 3, 3);
+	cout << "sum of matrix 2 equal = " << sumMatrix2 << endl;
+
+	if (problem11::areEqualMatrices(arr1,arr2,3,3))
+		cout << "\nYes Matrices are equal" << endl;
+	else
+		cout << "\nNO, Matricrs are not equal " << endl;
 }
