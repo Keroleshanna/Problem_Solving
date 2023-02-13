@@ -1,0 +1,39 @@
+namespace problem2 {
+	int randomNumber(int From, int To) {
+		return rand() % (To - From + 1) + From;
+	}
+	void fillMatrixWithRandomNumbers(int arr[3][3], int Rows, int Cols) {
+		for (int i = 0; i < Rows; i++) {
+			for (int x = 0; x < Cols; x++) {
+				arr[i][x] = randomNumber(1, 99);
+			}
+		}
+	}
+	void PrintArray(int arr[3][3], int rows, int cols) {
+		for (int o = 0; o < rows; o++) {
+			for (int n = 0; n < cols; n++) {
+				cout << setw(2) << arr[o][n] << "    ";
+			}
+			cout << endl;
+
+		}
+	}
+	void sumRowsInMatrix(int arr[3][3], int row, int col) {
+		
+		for (int o = 0; o < row; o++) {
+			int sumRow = 0;
+			for (int n = 0; n < col; n++) {
+				sumRow += arr[o][n];
+				//cout << setw(3) << arr[o][n] << "    ";
+			}
+			cout << "\nSum row " << o + 1 << " = " << sumRow << endl;
+		}
+	}
+}
+// _____________________________________________________________________________________________________________
+int main(){
+  int arr[3][3];
+	  problem2::fillMatrixWithRandomNumbers(arr, 3, 3);
+	  problem2::PrintArray(arr, 3, 3);
+	  problem2::sumRowsInMatrix(arr, 3, 3);
+}
