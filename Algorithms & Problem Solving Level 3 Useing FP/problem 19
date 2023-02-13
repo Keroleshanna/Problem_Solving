@@ -1,0 +1,62 @@
+// Min/Max Number in Matrix
+namespace problem19 {
+	int ReadRandomNumber(short From, short To) {
+		return rand() % (To - From + 1) + From;
+	}
+	void FillMatrixNumber(int arr[][3], short row, short column) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				arr[i][x] = ReadRandomNumber(1, 99);
+			}
+		}
+	}
+	void printMatrix(int arr[3][3], short row, short column) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				cout << setw(2) << arr[i][x] << "     ";
+			}
+			cout << endl;
+		}
+	}
+	bool MinimumNumberOfMatrix(int arr[3][3], short row, short column, int ShearcherNumber) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				if (ShearcherNumber > arr[i][x])
+					return false;
+			}
+		}
+		return true;
+	}
+	bool MaximunNumberOfMatrix(int arr[3][3], short row, short column, int ShearcherNumber) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				if (ShearcherNumber < arr[i][x])
+					return false;
+			}
+		}
+		return true;
+	}
+	void CheckMinimumAndMaximum(int arr[3][3], short row, short column) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				int numberInArray = arr[i][x];
+				if (MinimumNumberOfMatrix(arr, row, column, numberInArray))
+					cout << "The Minimum Number is : " << numberInArray << endl;
+				else if (MaximunNumberOfMatrix(arr, row, column, numberInArray))
+					cout << "The Maximum Number is : " << numberInArray << endl;
+			}
+		}
+	}
+}
+//________________________________________________________________________________________
+
+int main(){
+  int arr[3][3];
+	
+	cout << "The Matrix is : " << endl;
+	problem19::FillMatrixNumber(arr, 3, 3);
+	problem19::printMatrix(arr, 3, 3);
+	
+	cout << "\nMax and Min in Matrix : " << endl;
+	problem19::CheckMinimumAndMaximum(arr, 3, 3);
+}
