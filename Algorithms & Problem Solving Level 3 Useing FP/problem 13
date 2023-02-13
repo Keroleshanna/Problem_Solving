@@ -1,0 +1,39 @@
+// Cheack identity Matrix 
+namespace problem13 {
+	 //    1     0     0
+	//     0     1     0
+   //      0     0     1            if all diagonals in matrix equal 1 THAT  means this is IDENTITY MATRIX
+	void PrintMatrix(int arr[3][3], short row, short column) {
+		for (short i = 0; i < row; i++) {						
+			for (short x = 0; x < column; x++) {			  
+				cout << arr[i][x] << "   ";
+			}
+			cout << endl;
+		}
+	}
+	bool areMatrixIdentity(int Matrix[][3], short row, short column) {
+		for (short i = 0; i < row; i++) {
+			for (short x = 0; x < column; x++) {
+				if (i == x && Matrix[i][x] != 1)
+					return false;
+				else if (i != x && Matrix[i][x] != 0)
+					return false;
+			}
+		}
+		return true;
+	}
+}
+//___________________________________________________________________________________________
+
+int main(){
+  int Matrix1[3][3] = { {1, 0, 0}, {0, 1, 0}, {0, 0, 1} };
+	int Matrix1[3][3] = { {1, 4, 6}, {2, 8, 1}, {0, 0, 1} };
+
+	cout << "Matrix :" << endl;
+	problem13::PrintMatrix(Matrix1, 3, 3);
+
+	if (problem13::areMatrixIdentity(Matrix1, 3, 3))
+		cout << "yes Matrix is Identity : " << endl;
+	else 
+		cout << "NO Matrix is not Identity : " << endl;
+  }
