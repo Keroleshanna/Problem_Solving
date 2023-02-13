@@ -1,0 +1,34 @@
+// Count number in Matrix
+namespace problem15 {
+	void PrintMatrix(int arr[3][3], short row, short column) {
+		for (short i = 0; i < row; i++) {
+			for (short x = 0; x < column; x++) {
+				cout << arr[i][x] << "   ";
+			}
+			cout << endl;
+		}
+	}
+	int CountNumberInMatrix(int Matrix[][3], int SearchInMatrix, short row, short column) {
+		int countNumber = 0;
+		for (short i = 0; i < row; i++) {
+			for (short x = 0; x < column; x++) {
+				if (Matrix[i][x] == SearchInMatrix)
+					countNumber++;
+			}
+		}
+		return countNumber;
+	}
+}
+//___________________________________________________________________________
+
+int main(){
+  int Matrix1[3][3] = {{5, 0, 0}, {0, 5, 0}, {0, 0, 5}}, searchNumber;
+	int Matrix1[3][3] = { {1, 4, 6}, {2, 0, 0}, {0, 5, 0} };
+
+	cout << "Matrix is :" << endl;
+	problem15::PrintMatrix(Matrix1, 3, 3);
+
+	cout << "Enter the number to count in matrix ? ";
+	cin >> searchNumber;
+	cout << "Number" << searchNumber << "count is matrix is : " << problem15::CountNumberInMatrix(Matrix1,searchNumber , 3, 3) << endl;
+}
