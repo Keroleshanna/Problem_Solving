@@ -32,7 +32,7 @@ namespace problem3 {
 			cout << "The sum of row " << i + 1 << "is : " << arr[i] << endl;
 		}
 	}
-	//--------- other Solution
+	//--------- other Solution 
 	int RandomNumber(int From, int To) {
 		//Function to generate a random number
 		int randNum = rand() % (To - From + 1) + From;
