@@ -49,3 +49,4 @@ int main(){
 	problem5::fillAnotherArray(arr1, 3, 3);
 	problem5::SumMatixRowsInArry(arr1, arr2, 3, 3);
 }
+ 
