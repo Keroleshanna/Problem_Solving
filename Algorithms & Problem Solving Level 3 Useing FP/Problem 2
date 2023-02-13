@@ -37,3 +37,4 @@ int main(){
 	  problem2::PrintArray(arr, 3, 3);
 	  problem2::sumRowsInMatrix(arr, 3, 3);
 }
+ 
