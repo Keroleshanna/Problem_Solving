@@ -1,1 +1,44 @@
+// Sum each column in Matrix
+namespace problem4 {
+	int RandomNumber(int From, int To) {
+		int randNum = rand() % (To - From + 1) + From;
+		return randNum;
+	}
+	void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols) {
+		for (short i = 0; i < Rows; i++)      {
+			for (short j = 0; j < Cols; j++)   {
+				arr[i][j] = RandomNumber(1, 100); 
+			}
+		}
+	}
+	void PrintMatrix(int arr[3][3], short Rows, short Cols) {
+		for (short i = 0; i < Rows; i++)      { 
+			for (short j = 0; j < Cols; j++)   {   
+				cout << setw(3) << arr[i][j] << "     "; 
+			}
+			cout <<  "\n"; 
+		}
+	} 
+	void PrintColumnSumArray(int NumOfColumn, int sumColumn) {
+		cout << " Cols " << NumOfColumn + 1 << " Sum = " << sumColumn << endl;
 
+	}
+	void SumColumnMatrixInArry(int arr[3][3], short Rows, short Cols) {
+		for (short i = 0; i < Rows; i++) {
+			int sumOfColumn = 0;
+			for (short j = 0; j < Cols; j++) {
+				sumOfColumn += arr[j][i];
+			} 
+			PrintColumnSumArray(i, sumOfColumn);
+		}
+	}
+	
+}
+//________________________________________________________________________________________________
+
+int main(){
+  int arr1[3][3];
+	problem4::FillMatrixWithRandomNumbers(arr1, 3, 3);
+	problem4::PrintMatrix(arr1, 3, 3);
+	problem4::SumColumnMatrixInArry(arr1, 3, 3);
+}
