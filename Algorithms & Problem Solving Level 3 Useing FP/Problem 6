@@ -29,3 +29,4 @@ int main(){
 	problem6::FillMatrixWithOrderNumber(arr, 3, 3);
 	problem6::PrintMatrix(arr, 3, 3);
 }
+ 
