@@ -1,1 +1,45 @@
+// cheack matrices equality
+namespace problem11 {
+	int RandomNumber(int From, int To) {
+		return rand() % (To - From + 1) + From;
+	}
+	void FillRandomMatrix(int arr[3][3], short row, short column) {
+		for (short i = 0; i < row; i++) {
+			for (short x = 0; x < column; x++) {
+				arr[i][x] = RandomNumber(1, 10);
+			}
+		}
+	}
+	void PrintMatrix(int arr[3][3], short row, short column) {
+		for (short i = 0; i < row; i++) {
+			for (short x = 0; x < column; x++) {
+				printf(" %0*d   ", 2, arr[i][x]);
+			}
+			cout << endl;
+		}
+	}
+	int sumMatrix(int arr[][3], short row, short column) {
+		int sumOfMatrix = 0;
+		for (short i = 0; i < row; i++) {
+			for (short x = 0; x < column; x++) {
+				sumOfMatrix += arr[i][x];
+			}
+		}
+		return sumOfMatrix;
+	}
+	bool areEqualMatrices(int arr1[][3], int arr2[][3], short row, short column) {
+		return (sumMatrix(arr1, row, column) == sumMatrix(arr2, row, column));
+	}
+}
+//_________________________________________________________________________________________
 
+int main(){
+  int arr[3][3];
+
+	cout << "The Matrix is : " << endl;
+	problem10::FillRandomMatrix(arr, 3, 3);
+	problem10::PrintMatrix(arr, 3, 3);
+
+	
+	problem10::sumMatrix(arr, 3, 3);
+}
