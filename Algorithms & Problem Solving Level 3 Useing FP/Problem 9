@@ -1,1 +1,50 @@
+// Print middle row and column in Matrix
+namespace problem9 {
+	int RandomNumber(int From, int To) {
+		return rand() % (To - From + 1) + From;
+	}
+	void FillRandomMatrix(int arr[3][3], short row, short column) {
+		for (short i = 0; i < row; i++) {
+			for (short x = 0; x < column; x++) {
+				arr[i][x] = RandomNumber(1, 10);
+			}
+		}
+	}
+	void PrintMatrix(int arr[3][3], short row, short column) {
+		for (short i = 0; i < row; i++) {
+			for (short x = 0; x < column; x++) {
+				printf(" %0*d   ", 2, arr[i][x]);
+			}
+			cout << endl;
+		}
+	}
+	void PrintRowOfMatrix(int arr[3][3], short row, short column) {
+		short meddleRow = row / 2;
+		for (short x = 0; x < column; x++) {
+			printf(" %0*d ", 2, arr[meddleRow][x]);
+		}
+		cout << endl;
+	}
+	void PrintColumnOfMatrix(int arr[3][3], short row, short column) {
+		short meddleColumc = column / 2;
+		for (short i = 0; i < row; i++) {
+			printf(" %0*d ", 2, arr[i][meddleColumc]);
+		}
+		cout << endl;
+	}
+}
+//______________________________________________________________________________________________________________
 
+int main(){
+  int arr[3][3];
+
+	cout << "The array is : " << endl;
+	problem9::FillRandomMatrix(arr, 3, 3);
+	problem9::PrintMatrix(arr, 3, 3);
+
+	cout << "\nRow of Matrix is : " << endl;
+	problem9::PrintRowOfMatrix(arr, 3, 3);
+
+	cout << "\nColumn of Matrix is : " << endl;
+	problem9::PrintColumnOfMatrix(arr, 3, 3);
+}
