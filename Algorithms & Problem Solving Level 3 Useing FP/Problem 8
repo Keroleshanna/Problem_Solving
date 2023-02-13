@@ -1,1 +1,47 @@
+// Maltiply two Matrices
+namespace problem8 {
+	int RandomNumber(int From, int To) {
+		return rand() % (To - From + 1) + From;
+	}
+	void FillRandomMatrix(int arr[3][3], short row, short column) {
+		for (short i = 0; i < row; i++) {
+			for (short x = 0; x < column; x++) {
+				arr[i][x] = RandomNumber(1, 10);
+			}
+		}
+	}
+	void PrintMatrix1(int arr[3][3], short row, short column) {
+		for (short i = 0; i < row; i++) {
+			for (short x = 0; x < column; x++) {
+				printf(" %0*d   ", 2, arr[i][x]);
+			}
+			cout << endl;
+		}
+	}
+	void FillMatrix3(int arr3[][3], int arr2[][3], int arr1[][3], short row, short column) {
+		for (short i = 0; i < row; i++) {
+			for (short x = 0; x < column; x++) {
+				arr3[i][x] = arr2[i][x] * arr1[i][x];
+			}
+			cout << endl;
+		}
+	}
 
+}
+//_______________________________________________________________________________________________________________________
+
+int main(){
+  int arr1[3][3], arr2[3][3], arr3[3][3];
+
+	cout << "Matrix 1: " << endl;
+	problem8::FillRandomMatrix(arr1, 3, 3);
+	problem8::PrintMatrix(arr1, 3, 3);
+
+	cout << "\nMatrix 2: " << endl;
+	problem8::FillRandomMatrix(arr2, 3, 3);
+	problem8::PrintMatrix(arr2, 3, 3);
+
+	cout << "Matrix 3 Maltiply Matrix 1 x 2: " << endl;
+	problem8::FillMatrix3(arr1, arr2, arr3, 3, 3);
+	problem8::PrintMatrix(arr3, 3, 3);
+}
