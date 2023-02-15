@@ -1,0 +1,45 @@
+// Palindrome Matrix
+namespace problem20 {
+	void printMatrix(int arr[3][3], short row, short column) {
+		for (int i = 0; i < row; i++) {
+			for (int x = 0; x < column; x++) {
+				cout << setw(2) << arr[i][x] << "      ";
+			}
+			cout << endl;
+		}
+	}
+	int checkRow(int num, short row) {
+		int number = 0;
+		for (int i = 0; i < row; i++) {
+			number *= 10;
+			number += (num % 10);
+			num = num / 10;
+		}
+		return number;
+	}
+	int checkMatrix(int arr[3][3], short row, short column) { 
+		for (int i = 0; i < row; i++) {
+			int number = 0;
+			for (int x = 0; x < column; x++) {
+				number *= 10;
+				 number += arr[i][x];
+			}
+			if (number != checkRow(number, row)) {
+				cout << "NO This Matrix is not Palindrome Number :( " << endl;
+				return 0;
+			}
+				
+		}
+		cout << "YES This Matrix is Palindrome Number :) " << endl;
+
+	}
+}
+//_________________________________________________________________________________________
+int main(){
+  int arr[3][3] = { {2,5,2}, {9 , 9 , 9}, {1, 3, 1} };
+
+  cout << "Matrix is : " << endl;
+  problem20::printMatrix(arr, 3, 3); 
+
+  problem20::checkMatrix(arr, 3, 3);
+}
