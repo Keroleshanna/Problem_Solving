@@ -1,0 +1,26 @@
+// Upper First letter of each word     very important
+namespace problem24 {
+	string readString() {
+		string words;
+		cout << "Please enter your string " << endl;
+		getline(cin, words);
+		return words;
+	}
+	void printUpperFirstLetterOfEachWord(string words) {
+
+		if (words[0] != ' ')
+			words[0] = toupper(words[0]);
+
+		for (int i = 1; i < words.length(); i++) {
+
+			if (words[i] == ' ')
+				words[i + 1] = toupper(words[i + 1]);
+		}
+		cout << words << endl;
+	}
+}
+//________________________________________________________________________
+
+int main(){
+  problem24::printUpperFirstLetterOfEachWord(problem24::readString());
+}
