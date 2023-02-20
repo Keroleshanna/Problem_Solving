@@ -1,0 +1,31 @@
+// Fibonancci Serise
+namespace problem21 {
+	int readNumber() {
+		int number; 
+		cout << "please enter number of Fibonancci serise : ";
+		cin >> number; 
+		while (cin.fail()) {
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cout << "please enter corect number of Fibonancci serise : ";
+			cin >> number;
+		}
+		return number;
+		
+	}
+	void Fibonancci(int number) {
+		int prev1 = 1, prev2 = 1, Fibo;
+		cout << prev1 << "  " << prev2 << "  ";
+		for (int i = 2; i < number; i++) {
+			Fibo = prev1 + prev2;
+			cout << Fibo << "  ";
+			prev1 = prev2;
+			prev2 = Fibo;	
+		}
+	}
+}
+//__________________________________________________________________________
+
+int main(){
+  problem21::Fibonancci(problem21::readNumber());
+}
