@@ -1,0 +1,27 @@
+// Lower First letter of each word     very inportant
+namespace problem25 {
+	string printLowerFirstLetterOfEachWord(string text) {
+		
+		bool isFirstLetter = true;
+
+		for (int i = 0; i < text.length(); i++) {
+			
+			if (text[i] != ' ' && isFirstLetter)
+				text[i] = tolower(text[i]);
+
+			isFirstLetter = (text[i] == ' ' ? true : false);
+		}
+		return text;
+	}
+}
+//___________________________________________________________________________
+
+int main(){
+  string S1;
+	cout << "Please enter your text : " << endl;
+	getline(cin, S1);
+	
+	cout << "\nAfter conveet the text are : " << endl;
+	S1 = problem25::printLowerFirstLetterOfEachWord(S1);
+	cout << S1 << endl;
+}
