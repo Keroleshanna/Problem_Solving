@@ -1,0 +1,36 @@
+// Fibonancci Serise with Recursion
+namespace problem22 {
+	int readNumber() {
+		int number;
+		cout << "please enter number of Fibonancci serise : ";
+		cin >> number;
+		while (cin.fail()) {
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cout << "please enter corect number of Fibonancci serise : ";
+			cin >> number;
+		}
+		return number;
+
+	}
+	int Fibonancci(int number, int prev1 = 1, int prev2 = 1) {
+		int Fibo;
+		if(prev1 <= 1 && prev2 <= 1)
+			cout << prev1 << "  " << prev2 << "  ";
+		if (number > 2) {
+			Fibo = prev1 + prev2;
+			cout << Fibo << "  ";
+			prev1 = prev2;
+			prev2 = Fibo;
+			Fibonancci(number - 1, prev1, prev2);
+		}
+			
+		return 0;
+
+	}
+}
+//____________________________________________________________________________
+
+int main(){
+  problem22::Fibonancci(problem22::readNumber());
+}
