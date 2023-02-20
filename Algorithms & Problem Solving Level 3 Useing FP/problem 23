@@ -1,0 +1,23 @@
+//Print First letter of each word     very important
+namespace problem23 {
+	string readString() {
+		string words;
+		cout << "Please enter your string : " << endl;
+		getline(cin, words);
+		//cin >> words;
+		return words;
+	}
+	void printFristWordFromEachWord(string words) {
+		bool isFirstElement = true;
+		for (int i = 0; i < words.length(); i++) {  // kero hanna matta
+			if (words[i] != ' ' && isFirstElement)
+				cout << words[i] << endl;
+			isFirstElement = (words[i] == ' ' ? true : false);
+		}
+	}
+}
+//________________________________________________________________________
+
+int main(){
+  problem23::printFristWordFromEachWord(problem23::readString());
+}
